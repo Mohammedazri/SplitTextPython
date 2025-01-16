@@ -1,0 +1,21 @@
+import pandas as pd
+
+# Large text data
+large_text = """<Insert the complete text here>"""
+
+# Split the text into rows based on "Betweenrows"
+rows = large_text.split("Betweenrows")
+
+# Create a DataFrame for better organization and manipulation
+df = pd.DataFrame(rows, columns=["Questions"])
+
+# Display the DataFrame to verify the result
+print(df)
+
+# Save the DataFrame to an Excel file
+output_file = r'C:\Users\azrim\OneDrive\Bureau\questions.xlsx'
+try:
+    df.to_excel(output_file, index=False, sheet_name='Questions')
+    print(f"Excel file created successfully at: {output_file}")
+except Exception as e:
+    print(f"Error while saving to Excel: {e}")
